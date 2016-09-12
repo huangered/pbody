@@ -13,6 +13,16 @@ class BodyController extends Controller
     //
     public function index() {
     	$users = User::all();
-    	return view('user.user')->with('users', $users);
+    	return view('user.index')->with('users', $users);
     }
+
+    public function show($id) {
+		$user = User::find($id);
+		return view('user.show')->with('user', $user);
+	}
+
+	public function create($id) {
+		$user = User::find($id);
+		return view('user.show')->with('user', $user);
+	}
 }
